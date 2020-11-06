@@ -27,4 +27,12 @@ We seek to highlight the importance of such services by demonstrating how increa
 ### Planned Timeline 
 
 
+November 13th - Literature review and finalize variables of interest in project review meeting
+November 20th - Read in and tidy datasets 
+November 27th - Project analysis, visualizations, and discussion of results
+November 30th - Finalize written report with project details
+December 4th - Final project report, webpage, and screencast due 
+
+
+
 
