@@ -1,0 +1,30 @@
+---
+title: "Project Proposal: Maternal & Reproductive Health in NYC"
+author: "Ayeshra Acharya (aa4478), Zaynub Ibrahim (zi2125), Cynthia Liu (cl3938), Shelley Shen (ss5932)"
+date: "11/6/2020"
+output: github_document
+---
+
+### Motivation
+
+Recent events in American politics - a surging pro-life movement, an increasingly conservative Supreme Court, and pending litigation against the Affordable Care Act (ACA) will potentially restrict access to reproductive services & resources for women across the country. 
+
+We seek to highlight the importance of such services by demonstrating how increased access to sexual health education & reproductive services decrease rates of unwanted teen pregnancy, STDs/STIs, and maternal/infant mortality. 
+
+### Final Products
+
+
+
+
+### Data Sources
+
+
+
+### Planned Analyses
+
+
+
+### Planned Timeline 
+
+
+
