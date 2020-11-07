@@ -25,9 +25,10 @@ We plan to use a few datasets from the NYC Department of Health and Mental Hygie
 - We will utilize the NYC OpenData [Condom Availability Program dataset](https://data.cityofnewyork.us/Health/NYC-Condom-Availability-Program-HIV-condom-distrib/4kpn-sezh) to understand the availability of safer sex products. 
 - We will utilize the NYC OpenData [Pregnancy-Associated Mortality dataset](https://data.cityofnewyork.us/Health/Pregnancy-Associated-Mortality/27x4-cbi6) to analyze the distribution of maternal mortality. 
 -We will utilize the NHANES 2017 data and use the variable INDFMIN2, representing total family income.(https://wwwn.cdc.gov/nchs/nhanes/Search/variablelist.aspx?Component=Demographics&CycleBeginYear=2017) 
-
+- We will utilize the Guttmatcher Institute's Contraceptive Use Study to analyze the prevalence of national contraceptive use.(https://www.guttmacher.org/population-center/dataset/2012-2014-continuity-and-change-contraceptive-use-study) 
 
 ### Planned Analyses / Visualizations / Coding Challenges
+Since we are analyzing multiple datasets, a possible coding challenge would be in figuring out specific relevant variables and how to manipulate them. 
 
 
 
