@@ -2,7 +2,6 @@ Project Proposal: Maternal & Reproductive Health in NYC
 ================
 Ayeshra Acharya (aa4478), Zaynub Ibrahim (zi2125), Cynthia Liu (cl3938),
 Shelley Shen (ss5932)
-11/6/2020
 
 ### Motivation
 
@@ -32,11 +31,9 @@ Mental Hygiene to perform our analysis.
   - We will utilize the NYC OpenData [DOHMH Community Health
     Survey](https://data.cityofnewyork.us/Health/DOHMH-Community-Health-Survey-2010-2016-/csut-3wpr)
     to obtain the prevalence of health care insurance coverage.
-
   - We will utilize the NYC OpenData [Condom Availability Program
     dataset](https://data.cityofnewyork.us/Health/NYC-Condom-Availability-Program-HIV-condom-distrib/4kpn-sezh)
     to understand the availability of safer sex products.
-
   - We will utilize the NYC OpenData [Pregnancy-Associated Mortality
     dataset](https://data.cityofnewyork.us/Health/Pregnancy-Associated-Mortality/27x4-cbi6)
     to analyze the distribution of maternal mortality.
@@ -45,9 +42,10 @@ Mental Hygiene to perform our analysis.
 
 ### Planned Timeline
 
-November 13th - Literature review and finalize variables of interest in
-project review meeting November 20th - Read in and tidy datasets, assign
-plot creations November 27th - Project analysis, visualizations, and
-discussion of results November 30th - Finalize written report with
-project details December 4th - Final project report, webpage, and
-screencast due
+  - November 13th: Literature review and finalize variables of interest
+    in project review meeting
+  - November 20th: Read in and tidy datasets, assign plot creations
+  - November 27th: Project analysis, visualizations, and discussion of
+    results
+  - November 30th: Finalize written report with project details
+  - December 4th: Finalize project report, webpage, and screencast
