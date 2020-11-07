@@ -29,12 +29,11 @@ We plan to use a few datasets from the NYC Department of Health and Mental Hygie
 - We will utilize the Guttmatcher Institute's Contraceptive Use Study to analyze the prevalence of national contraceptive use.(https://www.guttmacher.org/population-center/dataset/2012-2014-continuity-and-change-contraceptive-use-study) 
 
 ### Planned Analyses / Visualizations / Coding Challenges
-Since we are analyzing multiple datasets, a possible coding challenge would be in figuring out specific relevant variables and how to manipulate them. 
-We will use QGIS to map access to reproductive services on a national level and how it may vary by state. 
-We will run regression models to look at how socioeconomic factors such as income and race impact maternal mortality and STD/STI rates and access to reproductive services. 
+- Since we are analyzing multiple datasets, a possible coding challenge would be in figuring out specific relevant variables and how to manipulate them. 
+- We will use QGIS to map access to reproductive services on a national level and how it may vary by state. 
+- We will run regression models to look at how socioeconomic factors such as income and race impact maternal mortality and STD/STI rates and access to reproductive services. 
 
 ### Planned Timeline 
-
 - November 13th: Literature review and finalize variables of interest in project review meeting
 - November 20th: Read in and tidy datasets, assign plot creations 
 - November 27th: Project analysis, visualizations, and discussion of results
