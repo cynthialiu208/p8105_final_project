@@ -8,14 +8,15 @@ output: github_document
 
 Recent events in American politics - a surging pro-life movement, an increasingly conservative Supreme Court, and pending litigation against the Affordable Care Act (ACA) will potentially restrict access to reproductive services & resources for women across the country. 
 
-We seek to highlight the importance of such services by demonstrating how increased access to reproductive services decreases rates of STDs/STIs and maternal/infant mortality in New York City and how access varies by socioeconomic factors. 
+We seek to highlight the importance of such services by demonstrating how increased access to reproductive services decreases rates of STDs/STIs and maternal mortality in New York City and how access varies by socioeconomic factors. 
 
 ### Final Products
 
 - Geospatial map of availability of reproductive services
-- Plots comparing levels of unwanted teen pregnancy, STDs/STIs, and maternal mortality with and without insurance coverage
+- Plots comparing levels of STDs/STIs, and maternal mortality with and without insurance coverage
 - Scatter plot of prevalence of STDs/STIs by proximity to reproductive services 
-
+- Website of project description, analysis and visualizations
+- Screencast of website 
 
 ### Data Sources
 
@@ -29,8 +30,8 @@ We plan to use a few datasets from the NYC Department of Health and Mental Hygie
 
 ### Planned Analyses / Visualizations / Coding Challenges
 Since we are analyzing multiple datasets, a possible coding challenge would be in figuring out specific relevant variables and how to manipulate them. 
-
-
+We will use QGIS to map access to reproductive services on a national level and how it may vary by state. 
+We will run regression models to look at how socioeconomic factors such as income and race impact maternal mortality and STD/STI rates and access to reproductive services. 
 
 ### Planned Timeline 
 
