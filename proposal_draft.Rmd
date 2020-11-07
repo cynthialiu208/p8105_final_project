@@ -8,7 +8,7 @@ output: github_document
 
 Recent events in American politics - a surging pro-life movement, an increasingly conservative Supreme Court, and pending litigation against the Affordable Care Act (ACA) will potentially restrict access to reproductive services & resources for women across the country. 
 
-We seek to highlight the importance of such services by demonstrating how increased access to sexual health education & reproductive services decrease rates of unwanted teen pregnancy, STDs/STIs, and maternal/infant mortality in New York City. 
+We seek to highlight the importance of such services by demonstrating how increased access to reproductive services decreases rates of STDs/STIs and maternal/infant mortality in New York City and how access varies by socioeconomic factors. 
 
 ### Final Products
 
@@ -24,6 +24,8 @@ We plan to use a few datasets from the NYC Department of Health and Mental Hygie
 - We will utilize the NYC OpenData [DOHMH Community Health Survey](https://data.cityofnewyork.us/Health/DOHMH-Community-Health-Survey-2010-2016-/csut-3wpr) to obtain the prevalence of health care insurance coverage. 
 - We will utilize the NYC OpenData [Condom Availability Program dataset](https://data.cityofnewyork.us/Health/NYC-Condom-Availability-Program-HIV-condom-distrib/4kpn-sezh) to understand the availability of safer sex products. 
 - We will utilize the NYC OpenData [Pregnancy-Associated Mortality dataset](https://data.cityofnewyork.us/Health/Pregnancy-Associated-Mortality/27x4-cbi6) to analyze the distribution of maternal mortality. 
+-We will utilize the NHANES 2017 data and use the variable INDFMIN2, representing total family income.(https://wwwn.cdc.gov/nchs/nhanes/Search/variablelist.aspx?Component=Demographics&CycleBeginYear=2017) 
+
 
 ### Planned Analyses / Visualizations / Coding Challenges
 
