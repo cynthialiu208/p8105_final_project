@@ -1,0 +1,42 @@
+---
+title: "Data Initialization"
+author: "Cynthia Liu (cl3938)"
+date: "11/18/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(readr)
+
+knitr::opts_chunk$set(
+	fig.width = 9, 
+  fig.asp = .6,
+  out.width = "90%"
+)
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+Clean data:
+
+  * Clean names
+  * Select relevant predictors & outcomes
+  * Drop neighborhoods that have no population
+  
+  
+```{r}
+project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
+  janitor::clean_names() %>%
+  select(nta_name:female, hispanic:foreign_born,edu_less_than_hs:poverty,unemployment,teen_births:smm_reliability, hiv:late_no_prenatal_care) %>%
+  drop_na(total_pop)
+```
+
+
