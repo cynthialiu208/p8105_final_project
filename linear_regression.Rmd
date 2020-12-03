@@ -1,0 +1,74 @@
+---
+title: "regression"
+author: "Cynthia Liu (cl3938)"
+date: "11/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(readr)
+library(ggpubr)
+library(corrplot)
+library(RColorBrewer)
+library(Hmisc)
+```
+
+Preliminary regression diagnostics:
+
+Testing normality assumptions of dependent variable
+```{r}
+ggqqplot(project_df$teen_births)
+ggqqplot(project_df$preterm_births)
+ggqqplot(project_df$smm)
+
+shapiro.test(project_df$teen_births)
+shapiro.test(project_df$preterm_births)
+shapiro.test(project_df$smm)
+shapiro.test(project_df$hiv)
+shapiro.test(project_df$chlamydia)
+shapiro.test(project_df$gonorrhea)
+shapiro.test(project_df$syphilis)
+```
+
+Y variables are non-normal: not a deal-breaker, just means that t and F tests are likely unreliable. 
+
+Let's check for multicollinearity next:
+```{r}
+#create dataset of predictors ONLY
+predictors_df = project_df %>% 
+  select(-nta_name, -nta_code, -hiv, -chlamydia, -gonorrhea, -syphilis, -contains("teen_births"), -contains("95cl"), -contains("preterm_births"), -contains("smm"))
+
+M = cor(predictors_df, use = "complete.obs") #case-wise deletion
+N <- rcorr(as.matrix(predictors_df), type = c("pearson")) #pair-wise deletion
+  
+corrplot::corrplot(N$r,
+                   type = "lower",
+                   method = "square", 
+                     addCoef.col = "black", 
+                     diag = FALSE, 
+                     number.cex = .6,
+                     tl.col = "black",
+                     tl.cex = .9,
+                     tl.srt = 45)
+```
+
+```{r}
+remove_corrs_df = predictors_df %>%
+  mutate(clinic_and_community_health_centers = clinics + community_health_centers) %>%
+  select(-c('pcmd', 'non_pcmd', 'adult_care_facilities', 'nursing_homes', 'clinics', 'community_health_centers', 'diagnostic_treatment_centers', 'hospitals', 'school_based_health_facilities', 'total_pop')) 
+
+corr_check <- rcorr(as.matrix(remove_corrs_df), type = c("pearson")) #pair-wise deletion
+  
+corrplot::corrplot(corr_check$r,
+                   type = "lower",
+                   method = "square", 
+                     addCoef.col = "black", 
+                     diag = FALSE, 
+                     number.cex = .6,
+                     tl.col = "black",
+                     tl.cex = .9,
+                     tl.srt = 45)
+```

@@ -31,7 +31,6 @@ Clean data:
   * Select relevant predictors & outcomes
   * Drop neighborhoods that have no population
   
-  
 ```{r}
 project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
   janitor::clean_names() %>%
