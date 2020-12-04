@@ -28,14 +28,16 @@ scale_fill_discrete = scale_fill_viridis_d
 Clean data:
 
   * Clean names
-  * Select relevant predictors & outcomes
-  * Drop neighborhoods that have no population
+  * Select relevant predictors & outcomes (demographics, SES, health outcomes, insurance status, number of providers)
+  * Drop neighborhoods that have no residential population (i.e. LaGuardia airport)
+  * Remove variables corresponding to 95% CI and reliability metrics of measurements
   
 ```{r}
 project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
   janitor::clean_names() %>%
-  select(nta_name:female, hispanic:foreign_born,edu_less_than_hs:poverty,unemployment,teen_births:smm_reliability, hiv:late_no_prenatal_care) %>%
-  drop_na(total_pop)
+  select(nta_name:female, hispanic:limited_eng,edu_less_than_hs:poverty,unemployment,preterm_births:smm_reliability, gonorrhea, health_ins, medicaid_enroll, late_no_prenatal_care, clinics, community_health_centers, non_pcmd, -contains("95cl"), -contains("reliability")) %>%
+  drop_na(total_pop) 
+  
 ```
 
 
