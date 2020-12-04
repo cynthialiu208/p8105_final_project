@@ -1,0 +1,71 @@
+---
+title: "Exploratory Analysis"
+author: "Zaynub Ibrahim (zi2125)"
+date: "12/2/2020"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(readr)
+library(plotly)
+
+knitr::opts_chunk$set(
+	fig.width = 9, 
+  fig.asp = .6,
+  out.width = "90%"
+)
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+Clean data:
+
+  * Clean names
+  * Select relevant predictors & outcomes
+  * Drop neighborhoods that have no population
+  
+```{r}
+plots_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
+  janitor::clean_names() %>%
+  select(nta_name, nta_code, total_pop, hispanic:other_race, poverty, smm) %>%
+  drop_na(total_pop) %>% 
+  pivot_longer(
+   cols = hispanic:other_race,
+   names_to = "race",
+   values_to = "percent_pop",
+   values_drop_na = TRUE
+ ) 
+```
+
+```{r}
+race_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
+  janitor::clean_names() %>%
+  select(nta_name, nta_code, total_pop, hispanic:other_race, poverty, smm) %>%
+  drop_na(total_pop) %>% 
+  pivot_longer(
+   cols = hispanic:other_race,
+   names_to = "race",
+   values_to = "percent_pop",
+   values_drop_na = TRUE
+ )
+```
+
+
+Plot 1: Poverty Vs SMM, grouped by race  
+
+```{r}
+ggplot(plots_df, aes(x = poverty, y = smm)) + 
+  geom_point(aes(color = race))
+```
+
+
+
+
