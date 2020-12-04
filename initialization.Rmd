@@ -10,35 +10,27 @@ library(tidyverse)
 library(dplyr)
 library(readxl)
 library(readr)
-
-knitr::opts_chunk$set(
-	fig.width = 9, 
-  fig.asp = .6,
-  out.width = "90%"
-)
-theme_set(theme_minimal() + theme(legend.position = "bottom"))
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
 ```
 
-Clean data:
+## Tidying data
 
   * Clean names
   * Select relevant predictors & outcomes (demographics, SES, health outcomes, insurance status, number of providers)
   * Drop neighborhoods that have no residential population (i.e. LaGuardia airport)
   * Drop observation representing NYC aggregated
   * Remove variables corresponding to 95% CI and reliability metrics of measurements
-  * Create new variable representing aggregated clinic and community health centers
-  
+  * Create new variable clinics_and_chc_count representing aggregated clinic and community health centers to reduce multicollinearity between predictors
+  * Create new variables adjusting number of healthcare providers by population in each neighborhood
+      + clinics_and_chc_density: clinic & community health centers per 10,000 people
+      + non_pcmd_density:  on-primary care providers (specialists like ob-gyns) per 10,000 people
+      
 ```{r}
 project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
   janitor::clean_names() %>%
   select(nta_name:female, hispanic:limited_eng,edu_less_than_hs:poverty,unemployment,preterm_births:smm_reliability, gonorrhea, health_ins, medicaid_enroll, late_no_prenatal_care, clinics, community_health_centers, non_pcmd, -contains("95cl"), -contains("reliability")) %>%
-  mutate(clinics_and_chc_count = clinics + community_health_centers) %>%
+  mutate(clinics_and_chc_count = clinics + community_health_centers,
+         clinics_and_chc_density = ((clinics + community_health_centers)/total_pop)*10000,
+         non_pcmd_density = (non_pcmd/total_pop)*10000) %>%
   drop_na(total_pop) %>%
   filter(nta_code != 'NYC')
 
