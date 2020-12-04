@@ -26,17 +26,13 @@ scale_colour_discrete = scale_colour_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
 
-Clean data:
+Tidy data:
 
-  * Clean names
-  * Select relevant predictors & outcomes
-  * Drop neighborhoods that have no population
+  * Create new poverty level variable 
+  * Reorganize race variable 
   
 ```{r}
-plots_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
-  janitor::clean_names() %>%
-  select(nta_name, nta_code, total_pop, hispanic:other_race, poverty, smm, gonorrhea, health_ins, edu_less_than_hs, preterm_births, late_no_prenatal_care, medicaid_enroll) %>%
-  drop_na(total_pop) %>% 
+plots_df = read_csv("./data/final_regression_variables_clean.csv") %>%
     mutate(poverty_level = cut(poverty, breaks = c(-Inf, 10, 20, 30, 40, Inf), labels = c("poverty_10","poverty_20", "poverty_30", "poverty_40", "poverty_40+"))) %>% 
   pivot_longer(
    cols = hispanic:other_race,
@@ -54,7 +50,11 @@ poverty Vs SMM
 poverty_smm_ggplot = 
   plots_df %>% 
   ggplot(aes(x = poverty, y = smm), group = nta_name) +
-  geom_point(color = "red")
+  geom_point(color = "red") + 
+  labs(
+    title = "Exploration of Poverty and Maternal Morbidity in NYC Neighborhoods",
+    x = "Percentage Population Below Federal Poverty Level",
+    y = "Rate of SMM per 10,000 Deliveries")
 
 ggplotly(poverty_smm_ggplot)
 
@@ -63,7 +63,11 @@ ggplotly(poverty_smm_ggplot)
 poverty2_smm_ggplot = 
   plots_df %>% 
   ggplot(aes(x = poverty_level, y = smm)) + 
-  geom_boxplot()
+  geom_boxplot() + 
+  labs(
+    title = "Exploration of Levels of Poverty and Maternal Morbidity in NYC Neighborhoods",
+    x = "Grouped Percentage Population Below Federal Poverty Level",
+    y = "Rate of SMM per 10,000 Deliveries")
 
 ggplotly(poverty2_smm_ggplot)
 
@@ -75,7 +79,11 @@ late or no prenatal care vs SMM
 prenatal_care_ggplot = 
   plots_df %>% 
   ggplot(aes(x = late_no_prenatal_care, y = smm, group = nta_name)) + 
-  geom_point(color = "red")
+  geom_point(color = "red") + 
+  labs(
+    title = "Exploration of Access to Prenatal Care and Maternal Morbidity in NYC Neighborhoods",
+    x = "Percent Live Births Recieving Late or No Prenatal Care",
+    y = "Rate of SMM per 10,000 Deliveries")
 
 ggplotly(prenatal_care_ggplot)
 ```
@@ -88,7 +96,11 @@ gonorrhea vs health insurance
 gonorrhea1_ggplot = 
   plots_df %>% 
   ggplot(aes(x = health_ins, y = gonorrhea), group = nta_name) + 
-  geom_point(color = "green")
+  geom_point(color = "green") + 
+  labs(
+    title = "Exploration of Health Insurance and  Gonorrhea in NYC Neighborhoods",
+    x = "Percent Population with Health Insurance",
+    y = "Rate of gonorrhea cases per 100,000 (2014-2015)")
 
 ggplotly(gonorrhea1_ggplot)
 
@@ -99,7 +111,11 @@ gonorrhea vs medicaid
 gonorrhea2_ggplot = 
   plots_df %>% 
   ggplot(aes(x = medicaid_enroll, y = gonorrhea), group = nta_name) +
-  geom_point(color = "green")
+  geom_point(color = "green") + 
+  labs(
+    title = "Exploration of Medicaid Enrollment and  Gonorrhea in NYC Neighborhoods",
+    x = "Percent Population Enrolled in Medicaid",
+    y = "Rate of gonorrhea cases per 100,000 (2014-2015)")
 
 ggplotly(gonorrhea2_ggplot)
 
@@ -110,7 +126,11 @@ gonorrhea vs education level
 gonorrhea3_ggplot = 
   plots_df %>% 
   ggplot(aes(x = edu_less_than_hs, y = gonorrhea), group = nta_name) +
-  geom_point(color = "green") 
+  geom_point(color = "green") + 
+  labs(
+    title = "Exploration of Education Level and  Gonorrhea in NYC Neighborhoods",
+    x = "Percent Population with Less than High School Education",
+    y = "rate of gonorrhea cases per 100,000 (2014-2015)")
 
 
 ggplotly(gonorrhea3_ggplot)
@@ -125,7 +145,11 @@ health insurance vs preterm birth
 preterm_ggplot = 
   plots_df %>% 
   ggplot(aes(x = health_ins, y = preterm_births), group = nta_name) +
-  geom_point(color = "blue")
+  geom_point(color = "blue") + 
+  labs(
+    title = "Exploration of Health Insurance and  Preterm Births in NYC Neighborhoods",
+    x = "Percent Population with Health Insurance",
+    y = "Percent Preterm Births Among All Live Births")
 
 ggplotly(preterm_ggplot)
 ```
@@ -135,7 +159,11 @@ medicaid enrollment vs preterm birth
 preterm2_ggplot = 
   plots_df %>% 
   ggplot(aes(x = medicaid_enroll, y = preterm_births, group = nta_name)) + 
-  geom_point(color = "blue")
+  geom_point(color = "blue") + 
+  labs(
+    title = "Exploration of Medicaid Enrollment and  Preterm Births in NYC Neighborhoods",
+    x = "Percent Population Enrolled in Medicaid",
+    y = "Percent Preterm Births Among All Live Births")
 
 ggplotly(preterm2_ggplot)
 ```
@@ -145,7 +173,11 @@ late or no prenatal care vs preterm births
 prenatal_care_ggplot = 
   plots_df %>% 
   ggplot(aes(x = late_no_prenatal_care, y = preterm_births, group = nta_name)) + 
-  geom_point(color = "blue")
+  geom_point(color = "blue") + 
+  labs(
+    title = "Exploration of Access to Prenatal Care and  Preterm Births in NYC Neighborhoods",
+    x = "Percent Live Births Recieving Late or No Prenatal Care",
+    y = "Percent Preterm Births Among All Live Births")
 
 ggplotly(prenatal_care_ggplot)
 ```
