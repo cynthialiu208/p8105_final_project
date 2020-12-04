@@ -12,14 +12,15 @@ library(readxl)
 library(readr)
 ```
 
-Clean data:
+## Tidying data
+
   * Clean names
   * Select relevant predictors & outcomes (demographics, SES, health outcomes, insurance status, number of providers)
   * Drop neighborhoods that have no residential population (i.e. LaGuardia airport)
   * Drop observation representing NYC aggregated
   * Remove variables corresponding to 95% CI and reliability metrics of measurements
   * Create new variable clinics_and_chc_count representing aggregated clinic and community health centers to reduce multicollinearity between predictors
-  * Create new variables adjusting number of healthcare providers by population in each neighborhood. 
+  * Create new variables adjusting number of healthcare providers by population in each neighborhood
       + clinics_and_chc_density: clinic & community health centers per 10,000 people
       + non_pcmd_density:  on-primary care providers (specialists like ob-gyns) per 10,000 people
       
