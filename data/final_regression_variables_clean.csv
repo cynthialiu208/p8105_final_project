@@ -1,5 +1,4 @@
 "nta_name","nta_code","total_pop","female","hispanic","white_non_hisp","black_non_hisp","asian_pi","other_race","foreign_born","limited_eng","edu_less_than_hs","poverty","unemployment","preterm_births","smm","gonorrhea","health_ins","medicaid_enroll","late_no_prenatal_care","clinics","community_health_centers","non_pcmd"
-"New York City","NYC",8354889,52.4,28.8,32.7,22.6,13.2,2.7,37.1,23.2,19.9,20.6,10.3,9.1,229.6,185,86.5,37,7,257,41,27791
 "Brooklyn Heights-Cobble Hill","BK09",23532,51,8.9,73.4,5.7,7.8,4.2,19.6,4,2.2,10,5.4,7.8,196.1,89.2,93,5,1.2,0,0,147
 "Sheepshead Bay-Gerritsen Beach-Manhattan Beach","BK17",63459,53.6,7.1,69.7,6.8,15.4,1,46.5,31.5,12.6,16.6,10.6,8.6,204.3,36.2,92.8,36,7,0,0,86
 "Brighton Beach","BK19",33146,53.1,12.4,68.7,1.3,15.2,2.3,69.5,58.8,12.1,28.1,7.9,9.9,203.1,18.1,88,49.7,8.8,0,0,242
