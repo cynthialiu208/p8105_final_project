@@ -37,6 +37,8 @@ project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
   janitor::clean_names() %>%
   select(nta_name:female, hispanic:limited_eng,edu_less_than_hs:poverty,unemployment,preterm_births:smm_reliability, gonorrhea, health_ins, medicaid_enroll, late_no_prenatal_care, clinics, community_health_centers, non_pcmd, -contains("95cl"), -contains("reliability")) %>%
   drop_na(total_pop) 
+
+write.csv(project_df, 'data/final_regression_variables_clean.csv', row.names = FALSE)
   
 ```
 
