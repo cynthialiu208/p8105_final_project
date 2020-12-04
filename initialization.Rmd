@@ -32,11 +32,13 @@ Clean data:
   * Drop neighborhoods that have no residential population (i.e. LaGuardia airport)
   * Drop observation representing NYC aggregated
   * Remove variables corresponding to 95% CI and reliability metrics of measurements
+  * Create new variable representing aggregated clinic and community health centers
   
 ```{r}
 project_df = read_excel("./data/nta-metadata.xlsx", sheet = "NTA Data") %>%
   janitor::clean_names() %>%
   select(nta_name:female, hispanic:limited_eng,edu_less_than_hs:poverty,unemployment,preterm_births:smm_reliability, gonorrhea, health_ins, medicaid_enroll, late_no_prenatal_care, clinics, community_health_centers, non_pcmd, -contains("95cl"), -contains("reliability")) %>%
+  mutate(clinics_and_chc_count = clinics + community_health_centers) %>%
   drop_na(total_pop) %>%
   filter(nta_code != 'NYC')
 
