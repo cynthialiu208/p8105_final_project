@@ -2,7 +2,7 @@
 title: "Exploratory Analysis"
 author: "Zaynub Ibrahim (zi2125)"
 date: "12/2/2020"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -53,7 +53,7 @@ poverty Vs SMM
 ```{r}
 poverty_smm_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = poverty, y = smm) + group = nta_name) +
+  ggplot(aes(x = poverty, y = smm), group = nta_name) +
   geom_point(color = "red")
 
 ggplotly(poverty_smm_ggplot)
@@ -87,7 +87,7 @@ gonorrhea vs health insurance
 ```{r}
 gonorrhea1_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = health_ins, y = gonorrhea) + group = nta_name) + 
+  ggplot(aes(x = health_ins, y = gonorrhea), group = nta_name) + 
   geom_point(color = "green")
 
 ggplotly(gonorrhea1_ggplot)
@@ -98,7 +98,7 @@ gonorrhea vs medicaid
 ```{r}
 gonorrhea2_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = medicaid_enroll, y = gonorrhea) + group = nta_name) +
+  ggplot(aes(x = medicaid_enroll, y = gonorrhea), group = nta_name) +
   geom_point(color = "green")
 
 ggplotly(gonorrhea2_ggplot)
@@ -109,7 +109,7 @@ gonorrhea vs education level
 ```{r}
 gonorrhea3_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = edu_less_than_hs, y = gonorrhea) + group = nta_name) +
+  ggplot(aes(x = edu_less_than_hs, y = gonorrhea), group = nta_name) +
   geom_point(color = "green") 
 
 
@@ -124,7 +124,7 @@ health insurance vs preterm birth
 ```{r}
 preterm_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = health_ins, y = preterm_births) + group = nta_name) +
+  ggplot(aes(x = health_ins, y = preterm_births), group = nta_name) +
   geom_point(color = "blue")
 
 ggplotly(preterm_ggplot)
@@ -151,14 +151,6 @@ ggplotly(prenatal_care_ggplot)
 ```
 
 
-
-poopy plot 
-```{r}
-race_df %>% 
-  group_by(race) %>% 
-  ggplot(aes(x = poverty, y = smm, color = race)) +
-  geom_point()
-```
 
 
 
