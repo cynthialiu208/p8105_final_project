@@ -95,7 +95,7 @@ gonorrhea vs health insurance
 ```{r}
 gonorrhea1_ggplot = 
   plots_df %>% 
-  ggplot(aes(x = health_ins, y = gonorrhea), group = nta_name) + 
+  ggplot(aes(x = health_ins, y = gonorrhea, group = nta_name)) + 
   geom_point(color = "green") + 
   labs(
     title = "Exploration of Health Insurance and  Gonorrhea in NYC Neighborhoods",
@@ -161,7 +161,7 @@ preterm2_ggplot =
   ggplot(aes(x = medicaid_enroll, y = preterm_births, group = nta_name)) + 
   geom_point(color = "blue") + 
   labs(
-    title = "Exploration of Medicaid Enrollment and  Preterm Births in NYC Neighborhoods",
+    title = "Exploration of Medicaid Enrollment and Preterm Births in NYC Neighborhoods",
     x = "Percent Population Enrolled in Medicaid",
     y = "Percent Preterm Births Among All Live Births")
 
